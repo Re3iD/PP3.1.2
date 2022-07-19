@@ -13,13 +13,19 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+   @Column(name="name")
     private String username;
+   @Column(name="pass")
     private String password;
 
     @ManyToMany
     private Set<Role> roles;
 
     public User() {
+    }
+    public User(String name, String pass){
+        username=name;
+        password = pass;
     }
 
     public Long getId() {
